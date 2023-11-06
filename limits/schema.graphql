@@ -9,6 +9,9 @@ type LimitOrder @entity{
   id: ID!
   epoch: Epoch!
   owner: Bytes!
+  initialLiquidity: BigInt!
+  killedLiquidity: BigInt!
+  killed: Boolean!
   pool: Bytes!
   liquidity: BigInt!
   tickLower: BigInt!

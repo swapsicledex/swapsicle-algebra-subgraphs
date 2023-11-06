@@ -28,9 +28,12 @@ export function PlaceHandler(event: Place): void{
         limit.tickLower = BigInt.fromI32(event.params.tickLower);
         limit.tickUpper = BigInt.fromI32(event.params.tickUpper);
         limit.zeroToOne = event.params.zeroForOne;
+        limit.killedLiquidity = ZERO_BI;
+        limit.killed = false;
         limit.epoch = epoch.id;   
     }
 
+    limit.initialLiquidity += event.params.liquidity;
     limit.liquidity += event.params.liquidity;
     limit.save();
 
@@ -54,6 +57,10 @@ export function KillHandler(event: Kill): void{
     let limit = LimitOrder.load(event.params.owner.toHexString() + "#" + event.params.epoch.toString())
     if( limit != null){
         limit.liquidity -= event.params.liquidity;
+        limit.killedLiquidity += event.params.liquidity;
+        if(limit.liquidity == ZERO_BI){
+            limit.killed = true;
+        } 
         limit.save();
     }
 
