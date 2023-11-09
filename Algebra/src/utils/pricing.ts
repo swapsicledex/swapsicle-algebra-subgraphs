@@ -13,7 +13,10 @@ export let WHITELIST_TOKENS: string[] = [
   '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8', // WMATIC
   '0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111', // WETH
   '0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9', // USDC
-  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae' // USDT 
+  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae', // USDT 
+  '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
+  '0x8309bc8bb43fb54db02da7d8bf87192355532829', //SLUSH
+  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4' // cUSD
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -22,7 +25,9 @@ let Q192 = Math.pow(2, 192)
 
 let STABLE_COINS: string[] = [
   '0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9', // USDC
-  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae' // USDT
+  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae', // USDT
+  '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
+  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4' // cUSD
 ]
 
 
