@@ -13,9 +13,9 @@
     "deploy-dev": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/  --access-token a3f47169869d4585a475d0d1d10a4062 iliaazhel/fuzzyswap subgraph.yaml",
     "create": "graph create cryptoalgebra/info --node https://api.thegraph.com/create/",
 
-    "create-swapsicle": "graph create cryptoalgebra/analytics2 --node http://10.8.0.4:8120",
-    "remove-swapsicle": "graph remove cryptoalgebra/analytics2 --node http://10.8.0.4:8120",
-    "deploy-swapsicle": "graph deploy cryptoalgebra/analytics2 --ipfs http://10.8.0.4:5101 --node http://10.8.0.4:8120"
+    "create-swapsicle": "graph create cryptoalgebra/analytics --node http://10.8.0.4:8120",
+    "remove-swapsicle": "graph remove cryptoalgebra/analytics --node http://10.8.0.4:8120",
+    "deploy-swapsicle": "graph deploy cryptoalgebra/analytics --ipfs http://10.8.0.4:5101 --node http://10.8.0.4:8120"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",

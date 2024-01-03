@@ -8,13 +8,14 @@ const WMatic_ADDRESS = '0xd102ce6a4db07d247fcc28f366a623df0938ca9e'
 const USDC_WMatic_03_POOL = '0xf733b8ab68dd2705c5e56c6c101f141044c5a2ef'
 
 // token where amounts should contribute to tracked volume and liquidity
-// usually tokens that many tokens are paired with s
+// usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
   '0xd102ce6a4db07d247fcc28f366a623df0938ca9e', // WMATIC
   '0xa0fb8cd450c8fd3a11901876cd5f17eb47c6bc50', // WETH
   '0x8d97cea50351fb4329d591682b148d43a0c3611b', // USDC
   '0x975ed13fa16857e83e7c493c7741d556eaad4a3f', // USDT 
-  '0xac45ede2098bc989dfe0798b4630872006e24c3f' //SLUSH
+  '0xac45ede2098bc989dfe0798b4630872006e24c3f', // SLUSH
+  '0x5fb2e2e655d03636b30c4e1ac1c96dd16330bde9' // TKIND
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
