@@ -15,7 +15,10 @@
 
     "create-swapsicle": "graph create cryptoalgebra/analytics --node http://10.8.0.4:8120",
     "remove-swapsicle": "graph remove cryptoalgebra/analytics --node http://10.8.0.4:8120",
-    "deploy-swapsicle": "graph deploy cryptoalgebra/analytics --ipfs http://10.8.0.4:5101 --node http://10.8.0.4:8120"
+    "deploy-swapsicle": "graph deploy cryptoalgebra/analytics --ipfs http://10.8.0.4:5101 --node http://10.8.0.4:8120",
+
+    "deploy-goldsky": "goldsky subgraph deploy swapsicle/analytics-testnet --path .",
+    "remove-goldsky": "goldsky subgraph delete swapsicle/analytics-testnet"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",
