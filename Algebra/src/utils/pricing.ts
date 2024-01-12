@@ -16,7 +16,8 @@ export let WHITELIST_TOKENS: string[] = [
   '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae', // USDT 
   '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
   '0x8309bc8bb43fb54db02da7d8bf87192355532829', //SLUSH
-  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4' // cUSD
+  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4', // cUSD
+  '0x25356aeca4210ef7553140edb9b8026089e49396' // LEND
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
