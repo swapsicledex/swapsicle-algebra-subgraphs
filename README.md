@@ -20,6 +20,12 @@ $ yarn codegen
 $ yarn build
 ```
 
+### Check Goldsky Subgraph Deployments
+
+```
+goldsky subgraph list
+```
+
 ### Deploy
 
 For deploy you need to run:
