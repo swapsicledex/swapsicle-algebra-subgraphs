@@ -17,8 +17,9 @@
     "remove-swapsicle": "graph remove cryptoalgebra/analytics --node http://3.133.197.76:8020",
     "deploy-swapsicle": "graph deploy cryptoalgebra/analytics --ipfs http://3.133.197.76:5005 --node http://3.133.197.76:8020",
 
-    "deploy-0xgraph": "graph deploy cryptoalgebra/analytics2 --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
-    "create-0xgraph": "graph create cryptoalgebra/analytics2 --node https://subgraph-api.mantle.xyz/deploy"
+    "deploy-0xgraph": "graph deploy cryptoalgebra/analytics --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
+    "create-0xgraph": "graph create cryptoalgebra/analytics --node https://subgraph-api.mantle.xyz/deploy",
+    "remove-0xgraph": "graph remove cryptoalgebra/analytics2 --node https://subgraph-api.mantle.xyz/deploy"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",
