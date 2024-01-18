@@ -13,9 +13,13 @@ export let WHITELIST_TOKENS: string[] = [
   '0xd102ce6a4db07d247fcc28f366a623df0938ca9e', // WMATIC
   '0xa0fb8cd450c8fd3a11901876cd5f17eb47c6bc50', // WETH
   '0x8d97cea50351fb4329d591682b148d43a0c3611b', // USDC
+
+  '0xb4b01216a5bc8f1c8a33cd990a1239030e60c905', //STLOS
   '0x975ed13fa16857e83e7c493c7741d556eaad4a3f', // USDT 
   '0xac45ede2098bc989dfe0798b4630872006e24c3f', // SLUSH
-  '0x5fb2e2e655d03636b30c4e1ac1c96dd16330bde9' // TKIND
+  '0x5fb2e2e655d03636b30c4e1ac1c96dd16330bde9', // TKIND
+  '0x78e05bc07e498f3191288c72a96fe1c4f7f6bdef', // TSOUL
+  '0x8f7d64ea96d729ef24a0f30b4526d47b80d877b9' // USDM
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -26,8 +30,6 @@ let STABLE_COINS: string[] = [
   '0x8d97cea50351fb4329d591682b148d43a0c3611b', // USDC
   '0x975ed13fa16857e83e7c493c7741d556eaad4a3f' // USDT
 ]
-
-
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
   let num = price.times(price).toBigDecimal()
