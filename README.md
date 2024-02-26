@@ -1,5 +1,22 @@
 # Algebra_Subgraph
 
+## Graph CLI
+
+graphcli must be installed to deploy the subgraph. You can install it by running:
+```
+$ yarn global add @graphprotocol/graph-cli
+```
+
+To successfully deploy to the Swapsicle node, use graphcli version 51:
+```
+yarn global add @graphprotocol/graph-cli@0.51.0
+```
+
+To install to Goldsky, use graphcli latest version (as of 2024-02-26)
+```
+$ yarn global add @graphprotocol/graph-cli (0.68.3)
+```
+
 ## Algebra
 
 ### Build
