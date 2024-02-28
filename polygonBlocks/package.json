@@ -14,7 +14,7 @@
     "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
     "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks",
     
-    "deploy-goldsky": "goldsky subgraph deploy swapsicle/blocks-testnet --path .",
+    "deploy-goldsky": "goldsky subgraph deploy cryptoalgebra/blocks --path .",
     "remove-goldsky": "goldsky subgraph delete swapsicle/blocks-testnet"
   },
   "dependencies": {

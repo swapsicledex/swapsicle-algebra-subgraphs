@@ -14,7 +14,7 @@
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ --access-token  iliaazhel/zyberswap-farming  subgraph.yaml",
     "deploy-dev": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ iliaazhel/algebra-dev-staker subgraph.yaml",
   
-    "deploy-goldsky": "goldsky subgraph deploy swapsicle/farms-testnet --path .",
+    "deploy-goldsky": "goldsky subgraph deploy cryptoalgebra/farms --path .",
     "remove-goldsky": "goldsky subgraph delete swapsicle/farms-testnet"
   
   },
