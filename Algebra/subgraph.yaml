@@ -1,18 +1,18 @@
-specVersion: 0.0.2
+specVersion: 0.0.4
 description: Algebra is a decentralized protocol for automated token exchange on Polygon.
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: telos-testnet
+    network: mainnet
     source:
       address: '0x2746B1a7B780f128F0db99d9fc60C2DB3E4a7bd5'
       abi: Factory
       startBlock: 257848189 
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/factory.ts
       entities:
@@ -36,14 +36,14 @@ dataSources:
           handler: handleNewCommunityFee
   - kind: ethereum/contract
     name: NonfungiblePositionManager
-    network: telos-testnet
+    network: mainnet
     source:
       address: '0x805F104051415863Bbdf458cDCd52ceB5FEd9c01'
       abi: NonfungiblePositionManager
       startBlock: 257848433 
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/position-manager.ts
       entities:
@@ -71,12 +71,12 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: telos-testnet
+    network: mainnet
     source:
       abi: Pool
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/core.ts
       entities:

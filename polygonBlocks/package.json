@@ -22,7 +22,7 @@
     "remove-goldsky": "goldsky subgraph delete swapsicle/blocks-testnet"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.17.1",
-    "@graphprotocol/graph-ts": "0.17.0"
+    "@graphprotocol/graph-cli": "0.22.1",
+    "@graphprotocol/graph-ts": "0.25.0"
   }
 }
