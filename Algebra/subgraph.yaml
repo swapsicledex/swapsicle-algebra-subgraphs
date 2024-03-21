@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.4
 description: Algebra is a decentralized protocol for automated token exchange on Polygon.
 schema:
   file: ./schema.graphql
@@ -9,10 +9,10 @@ dataSources:
     source:
       address: '0xA09BAbf9A48003ae9b9333966a8Bda94d820D0d9'
       abi: Factory
-      startBlock: 301362979
+      startBlock: 301362978
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/factory.ts
       entities:
@@ -43,7 +43,7 @@ dataSources:
       startBlock: 304000000
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/position-manager.ts
       entities:
@@ -76,7 +76,7 @@ templates:
       abi: Pool
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: ./src/mappings/core.ts
       entities:
