@@ -14,11 +14,15 @@
     "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
     "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks",
 
+    "create-swapsicle": "graph create cryptoalgebra/blocks2 --node http://10.8.0.4:8120",
+    "remove-swapsicle": "graph remove cryptoalgebra/blocks2 --node http://10.8.0.4:8120",
+    "deploy-swapsicle": "graph deploy cryptoalgebra/blocks2 --ipfs http://10.8.0.4:5101 --node http://10.8.0.4:8120",
+
     "deploy-goldsky": "goldsky subgraph deploy swapsicle/blocks --path .",
     "remove-goldsky": "goldsky subgraph delete swapsicle/blocks"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.17.1",
-    "@graphprotocol/graph-ts": "0.17.0"
+    "@graphprotocol/graph-cli": "0.22.1",
+    "@graphprotocol/graph-ts": "0.25.0"
   }
 }
