@@ -5,11 +5,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: mantle-testnet
+    network: mantle-sepolia
     source:
-      address: '0xc074c6551a9cB8f63ff3dC2eA9616996db9B4eCF'
+      address: '0x10253594A832f967994b44f33411940533302ACb'
       abi: Factory
-      startBlock: 21760317
+      startBlock: 4909023
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -36,11 +36,11 @@ dataSources:
           handler: handleNewCommunityFee
   - kind: ethereum/contract
     name: NonfungiblePositionManager
-    network: mantle-testnet
+    network: mantle-sepolia
     source:
-      address: '0x1B9335eB8C67CcacA41be3f4e53E45a7DB653A9D'
+      address: '0x0BFaCE9a5c9F884a4f09fadB83b69e81EA41424B'
       abi: NonfungiblePositionManager
-      startBlock: 22119847
+      startBlock: 4909108
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -71,7 +71,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: mantle-testnet
+    network: mantle-sepolia
     source:
       abi: Pool
     mapping:
