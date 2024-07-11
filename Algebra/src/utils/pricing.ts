@@ -5,7 +5,7 @@ import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
 // token where amounts should contribute to tracked volume and liquidity
-// usually tokens that many tokens are paired with s
+// usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
   WNATIVE_ADDRESS,
   SLUSH_ADDRESS,
@@ -19,7 +19,6 @@ let STABLE_COINS: string[] = [
   USDC_ADDRESS,
   USDT_ADDDRESS,
 ]
-
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
   let num = price.times(price).toBigDecimal()
