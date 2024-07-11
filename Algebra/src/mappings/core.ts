@@ -325,11 +325,8 @@ export function handleSwap(event: SwapEvent): void {
   let amount1 = convertTokenToDecimal(event.params.amount1, token1.decimals)
 
   if(pools_list.includes(event.address.toHexString())){
-
     amount0 = convertTokenToDecimal(event.params.amount1, token0.decimals)
     amount1 = convertTokenToDecimal(event.params.amount0, token1.decimals)
-
-  
   }
 
  // need absolute amounts for volume
@@ -360,8 +357,6 @@ export function handleSwap(event: SwapEvent): void {
 
   let amount0USD = amount0Matic.times(bundle.maticPriceUSD)
   let amount1USD = amount1Matic.times(bundle.maticPriceUSD)
-
-
 
   // get amount that should be tracked only - div 2 because cant count both input and output as volume
   let amountTotalUSDTracked = getTrackedAmountUSD(amount0Abs, token0 as Token, amount1Abs, token1 as Token).div(
@@ -473,6 +468,7 @@ export function handleSwap(event: SwapEvent): void {
   swap.amount0 = amount0
   swap.amount1 = amount1
   swap.amountUSD = amountTotalUSDTracked
+  swap.feesUSD = feesUSD
   swap.tick = BigInt.fromI32(event.params.tick as i32)
   swap.price = event.params.price
 
@@ -493,12 +489,12 @@ export function handleSwap(event: SwapEvent): void {
   let token0HourData = updateTokenHourData(token0 as Token, event)
   let token1HourData = updateTokenHourData(token1 as Token, event)
 
-  if(amount0.lt(ZERO_BD)){
+  if (amount0.lt(ZERO_BD)) {
     pool.feesToken1 = pool.feesToken1.plus(amount1.times(pool.fee.toBigDecimal()).div(BigDecimal.fromString('1000000')))
     poolDayData.feesToken1 = poolDayData.feesToken1.plus(amount1.times(pool.fee.toBigDecimal()).div(BigDecimal.fromString('1000000')))
   }
 
-  if(amount1.lt(ZERO_BD) ){
+  if (amount1.lt(ZERO_BD)) {
     pool.feesToken0 = pool.feesToken0.plus(amount0.times(pool.fee.toBigDecimal()).div(BigDecimal.fromString('1000000')))
     poolDayData.feesToken0 = poolDayData.feesToken0.plus(amount0.times(pool.fee.toBigDecimal()).div(BigDecimal.fromString('1000000')))
   }

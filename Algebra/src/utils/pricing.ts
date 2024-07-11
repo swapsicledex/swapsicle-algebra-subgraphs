@@ -8,7 +8,7 @@ const WMatic_ADDRESS = '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8'
 const USDC_WMatic_03_POOL = '0x84ec2a3907ed9e79c7a45551fef9da29d5f2ae9b'
 
 // token where amounts should contribute to tracked volume and liquidity
-// usually tokens that many tokens are paired with s
+// usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
   '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8', // WMATIC
   '0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111', // WETH
@@ -30,7 +30,6 @@ let STABLE_COINS: string[] = [
   '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
   '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4' // cUSD
 ]
-
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
   let num = price.times(price).toBigDecimal()
