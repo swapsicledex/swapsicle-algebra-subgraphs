@@ -334,22 +334,10 @@ export function handleSwap(event: SwapEvent): void {
  if (amount0.lt(ZERO_BD)) {
    amount0Abs = amount0.times(BigDecimal.fromString('-1'))
  }
- else { 
-   let communityFeeAmount = amount0.times(BigDecimal.fromString((pool.fee.times(pool.communityFee).toString())).div(BigDecimal.fromString('1000000000')))
-   communityFeeAmount = communityFeeAmount.times(BigDecimal.fromString("1")) 
-   amount0 = amount0.minus(communityFeeAmount)
-   amount0Abs = amount0
- } 
 
  let amount1Abs = amount1
  if (amount1.lt(ZERO_BD)) {
    amount1Abs = amount1.times(BigDecimal.fromString('-1'))
- }
- else{
-   let communityFeeAmount = amount1.times(BigDecimal.fromString((pool.fee.times(pool.communityFee).toString())).div(BigDecimal.fromString('1000000000')))
-   communityFeeAmount = communityFeeAmount.times(BigDecimal.fromString("1"))  
-   amount1 = amount1.minus(communityFeeAmount)
-   amount1Abs = amount1
  }
 
   let amount0Matic = amount0Abs.times(token0.derivedMatic)
