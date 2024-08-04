@@ -31,13 +31,13 @@ export function handleIncentiveCreated(event: EternalFarmingCreated): void {
   )!;
   let incentiveId = crypto.keccak256(incentiveIdEncoded);
 
-  let entity = EternalFarming.load(incentiveId.toHex()); 
+  let entity = EternalFarming.load(incentiveId.toHex());
   if (entity == null) {
     entity = new EternalFarming(incentiveId.toHex());
+    entity.rewardRate = BigInt.fromString("0");
     entity.reward = BigInt.fromString("0");
     entity.bonusReward = BigInt.fromString("0");
   }
-  
 
   entity.rewardToken = event.params.rewardToken;
   entity.bonusRewardToken = event.params.bonusRewardToken;
