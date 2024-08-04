@@ -34,6 +34,7 @@ export function handleIncentiveCreated(event: EternalFarmingCreated): void {
   let entity = EternalFarming.load(incentiveId.toHex());
   if (entity == null) {
     entity = new EternalFarming(incentiveId.toHex());
+    entity.bonusRewardRate = BigInt.fromString("0");
     entity.rewardRate = BigInt.fromString("0");
     entity.reward = BigInt.fromString("0");
     entity.bonusReward = BigInt.fromString("0");
