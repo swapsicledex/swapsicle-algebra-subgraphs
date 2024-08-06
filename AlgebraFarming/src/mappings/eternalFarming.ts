@@ -12,6 +12,7 @@ import {
 } from '../types/EternalFarming/EternalFarming';
 import { Deposit, Reward, EternalFarming } from '../types/schema';
 import { createTokenEntity } from '../utils/token'
+import { loadTransaction } from '../utils';
 
 export function handleIncentiveCreated(event: EternalFarmingCreated): void {
   let incentiveIdTuple: Array<ethereum.Value> = [
@@ -40,6 +41,10 @@ export function handleIncentiveCreated(event: EternalFarmingCreated): void {
     entity.bonusReward = BigInt.fromString("0");
   }
 
+  let transaction = loadTransaction(event)
+  entity.transaction = transaction.id
+  entity.timestamp = transaction.timestamp
+
   entity.rewardToken = event.params.rewardToken;
   entity.bonusRewardToken = event.params.bonusRewardToken;
   entity.pool = event.params.pool;
@@ -55,16 +60,21 @@ export function handleIncentiveCreated(event: EternalFarmingCreated): void {
 export function handleTokenStaked(event: FarmEntered): void {
   let entity = Deposit.load(event.params.tokenId.toString());
   if (entity != null) {
+    let transaction = loadTransaction(event)
+    entity.transaction = transaction.id
+    entity.timestamp = transaction.timestamp
     entity.eternalFarming = event.params.incentiveId;
     entity.save();
   }
-
 }
 
 export function handleRewardClaimed(event: RewardClaimed): void {
   let id = event.params.rewardAddress.toHexString() + event.params.owner.toHexString();
   let rewardEntity = Reward.load(id);
-  if (rewardEntity != null){
+  if (rewardEntity != null) {
+      let transaction = loadTransaction(event)
+      rewardEntity.transaction = transaction.id
+      rewardEntity.timestamp = transaction.timestamp
       rewardEntity.owner = event.params.owner;
       rewardEntity.rewardAddress = event.params.rewardAddress;
       rewardEntity.amount = rewardEntity.amount.minus(event.params.reward);
@@ -73,13 +83,14 @@ export function handleRewardClaimed(event: RewardClaimed): void {
 }
 
 export function handleTokenUnstaked(event: FarmEnded): void {
-  
+  let transaction = loadTransaction(event)
   let entity = Deposit.load(event.params.tokenId.toString());
   
-  if(entity){
-    let eternalFarming = EternalFarming.load(entity.eternalFarming! .toHexString())
-
-    if(eternalFarming){
+  if (entity) {
+    let eternalFarming = EternalFarming.load(entity.eternalFarming!.toHexString())
+    if (eternalFarming) {
+      eternalFarming.transaction = transaction.id
+      eternalFarming.timestamp = transaction.timestamp
       eternalFarming.reward -= event.params.reward
       eternalFarming.bonusReward -= event.params.bonusReward
       eternalFarming.save()
@@ -94,7 +105,7 @@ export function handleTokenUnstaked(event: FarmEnded): void {
   let id = event.params.rewardAddress.toHexString() + event.params.owner.toHexString()
   let rewardEntity = Reward.load(id)
 
-  if (rewardEntity == null){
+  if (rewardEntity == null) {
       rewardEntity = new Reward(id)
       rewardEntity.amount = BigInt.fromString('0')
   }
@@ -102,6 +113,8 @@ export function handleTokenUnstaked(event: FarmEnded): void {
   rewardEntity.owner = event.params.owner
   rewardEntity.rewardAddress = event.params.rewardAddress
   rewardEntity.amount = rewardEntity.amount.plus(event.params.reward)
+  rewardEntity.transaction = transaction.id
+  rewardEntity.timestamp = transaction.timestamp
   rewardEntity.save();  
 
 
@@ -116,60 +129,75 @@ export function handleTokenUnstaked(event: FarmEnded): void {
   rewardEntity.owner = event.params.owner
   rewardEntity.rewardAddress = event.params.bonusRewardToken
   rewardEntity.amount = rewardEntity.amount.plus(event.params.bonusReward)
+  rewardEntity.transaction = transaction.id
+  rewardEntity.timestamp = transaction.timestamp
   rewardEntity.save();
 
 }
 
-export function handleDeactivate( event: IncentiveDeactivated): void{
+export function handleDeactivate(event: IncentiveDeactivated): void {
 
+  let transaction = loadTransaction(event)
   let entity = EternalFarming.load(event.params.incentiveId.toHex());
 
-  if(entity){
+  if (entity) {
     entity.isDeactivated = true
+    entity.transaction = transaction.id
+    entity.timestamp = transaction.timestamp
     entity.save()
   } 
-
 }
 
 
-export function handleRewardsRatesChanged( event: RewardsRatesChanged): void{
+export function handleRewardsRatesChanged(event: RewardsRatesChanged): void {
+  let transaction = loadTransaction(event)
   let eternalFarming = EternalFarming.load(event.params.incentiveId.toHexString())
-  if(eternalFarming){
+  if (eternalFarming) {
     eternalFarming.rewardRate = event.params.rewardRate
     eternalFarming.bonusRewardRate = event.params.bonusRewardRate
+    eternalFarming.transaction = transaction.id
+    eternalFarming.timestamp = transaction.timestamp
     eternalFarming.save()
   }
 }
 
-export function handleRewardsAdded( event: RewardsAdded): void{
+export function handleRewardsAdded(event: RewardsAdded): void {
+  let transaction = loadTransaction(event)
   let eternalFarming = EternalFarming.load(event.params.incentiveId.toHexString())
-  if(eternalFarming){
+  if (eternalFarming) {
     eternalFarming.reward += event.params.rewardAmount
-    eternalFarming.bonusReward += event.params.bonusRewardAmount 
+    eternalFarming.bonusReward += event.params.bonusRewardAmount
+    eternalFarming.transaction = transaction.id
+    eternalFarming.timestamp = transaction.timestamp
     eternalFarming.save()
   }
 }
 
-export function handleRewardDecreased( event: RewardAmountsDecreased): void{
+export function handleRewardDecreased(event: RewardAmountsDecreased): void {
+  let transaction = loadTransaction(event)
   let eternalFarming = EternalFarming.load(event.params.incentiveId.toHexString())
-  if(eternalFarming){
+  if (eternalFarming) {
     eternalFarming.reward -= event.params.rewardAmount
-    eternalFarming.bonusReward -= event.params.bonusRewardAmount 
+    eternalFarming.bonusReward -= event.params.bonusRewardAmount
+    eternalFarming.transaction = transaction.id
+    eternalFarming.timestamp = transaction.timestamp
     eternalFarming.save()
   }
 }
 
-export function handleCollect( event: RewardsCollected): void{
-
+export function handleCollect(event: RewardsCollected): void{
+  let transaction = loadTransaction(event)
   let entity = Deposit.load(event.params.tokenId.toString());
   
-  if(entity){
+  if (entity) {
     let eternalFarmingID = entity.eternalFarming!.toHexString()
     let eternalFarming = EternalFarming.load(eternalFarmingID)
 
-    if(eternalFarming){
+    if (eternalFarming) {
       eternalFarming.reward -= event.params.rewardAmount
       eternalFarming.bonusReward -= event.params.bonusRewardAmount
+      eternalFarming.transaction = transaction.id
+      eternalFarming.timestamp = transaction.timestamp
       eternalFarming.save()
     
 
@@ -184,6 +212,8 @@ export function handleCollect( event: RewardsCollected): void{
   rewardEntity.owner = entity.owner
   rewardEntity.rewardAddress = eternalFarming.rewardToken
   rewardEntity.amount = rewardEntity.amount.plus(event.params.rewardAmount)
+  rewardEntity.transaction = transaction.id
+  rewardEntity.timestamp = transaction.timestamp
   rewardEntity.save();  
 
 
@@ -198,6 +228,8 @@ export function handleCollect( event: RewardsCollected): void{
   rewardEntity.owner = entity.owner
   rewardEntity.rewardAddress = eternalFarming.bonusRewardToken
   rewardEntity.amount = rewardEntity.amount.plus(event.params.bonusRewardAmount)
+  rewardEntity.transaction = transaction.id
+  rewardEntity.timestamp = transaction.timestamp
   rewardEntity.save();
 }
 }
