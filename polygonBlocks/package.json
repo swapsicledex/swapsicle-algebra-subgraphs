@@ -4,26 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ --access-token iliaazhel/goerli-blocks subgraph.yaml",
-    "create-local": "graph create --node http://localhost:8020/ iliaazhel/ethereum-blocks",
-    "remove-local": "graph remove --node http://localhost:8020/ iliaazhel/ethereum-blocks",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 iliaazhel/ethereum-blocks",
-    "deploy-rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/rinkeby-blocks",
-    "deploy-kovan": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/kovan-blocks",
-    "deploy-goerli": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/goerli-blocks",
-    "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
-    "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks",
-
-    "create-swapsicle": "graph create cryptoalgebra/blocks --node http://10.8.0.4:8220",
-    "remove-swapsicle": "graph remove cryptoalgebra/blocks --node http://10.8.0.4:8220",
-    "deploy-swapsicle": "graph deploy cryptoalgebra/blocks --ipfs http://10.8.0.4:5201 --node http://10.8.0.4:8220",
-
-    "create-mainnet": "graph create swapsicle/blocks --node https://telosapi.0xgraph.xyz/deploy",
-    "remove-mainnet": "graph remove swapsicle/blocks --node https://telosapi.0xgraph.xyz/deploy",
-    "deploy-mainnet": "graph deploy swapsicle/blocks --node https://telosapi.0xgraph.xyz/deploy --ipfs https://telosapi.0xgraph.xyz/ipfs",
-
-    "deploy-goldsky": "goldsky subgraph deploy swapsicle/blocks --path .",
-    "remove-goldsky": "goldsky subgraph delete swapsicle/blocks"
+    "deploy": "echo \"Change 0.0.0 and run: goldsky subgraph deploy swapsicle-blocks-taiko-hekla/0.0.0 --path .\""
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.22.1",
