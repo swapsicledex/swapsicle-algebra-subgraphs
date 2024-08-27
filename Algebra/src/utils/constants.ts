@@ -4,9 +4,9 @@ import { Factory as FactoryContract } from '../types/templates/Pool/Factory'
 
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0xA09BAbf9A48003ae9b9333966a8Bda94d820D0d9'
-export const SLUSH_ADDRESS = '0xac45ede2098bc989dfe0798b4630872006e24c3f'
-export const ICE_ADDRESS = Address.fromString('0xaae65b3b41f7c372c729b59b08ca93d53e9b79b3')
+export const FACTORY_ADDRESS = '0x597502d47b0321de8A099F0BAcc769bAE35DA312'
+export const SLUSH_ADDRESS = '0x36BFE1F1b36CfdB4fe75cC592FF5dC6200Ad3E0f'
+export const ICE_ADDRESS = Address.fromString('0x0c4e57A3a3EF4790C4848a711851DC08e8A16dA7')
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)

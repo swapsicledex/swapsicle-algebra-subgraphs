@@ -7,22 +7,7 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "create-local": "graph create cryptoalgebra/algebra --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy cryptoalgebra/algebra --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ --access-token  iliaazhel/integral-core subgraph.yaml",
-    "deploy-dev": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/  --access-token a3f47169869d4585a475d0d1d10a4062 iliaazhel/fuzzyswap subgraph.yaml",
-    "create": "graph create cryptoalgebra/info --node https://api.thegraph.com/create/",
-
-    "create-swapsicle": "graph create cryptoalgebra/analytics --node http://10.8.0.4:8220",
-    "remove-swapsicle": "graph remove cryptoalgebra/analytics --node http://10.8.0.4:8220",
-    "deploy-swapsicle": "graph deploy cryptoalgebra/analytics --ipfs http://10.8.0.4:5201 --node http://10.8.0.4:8220",
-
-    "create-mainnet": "graph create swapsicle/analytics --node https://telosapi.0xgraph.xyz/deploy",
-    "remove-mainnet": "graph remove swapsicle/analytics --node https://telosapi.0xgraph.xyz/deploy",
-    "deploy-mainnet": "graph deploy swapsicle/analytics --node https://telosapi.0xgraph.xyz/deploy --ipfs https://telosapi.0xgraph.xyz/ipfs",
-
-    "deploy-goldsky": "goldsky subgraph deploy swapsicle/analytics --path .",
-    "remove-goldsky": "goldsky subgraph delete swapsicle/analytics"
+    "deploy": "echo \"Change 0.0.0 and run: goldsky subgraph deploy swapsicle-analytics-taiko-hekla/0.0.0 --path .\""
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",

@@ -4,26 +4,20 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WMatic_ADDRESS = '0xd102ce6a4db07d247fcc28f366a623df0938ca9e'
-const USDC_WMatic_03_POOL = '0xf733b8ab68dd2705c5e56c6c101f141044c5a2ef'
+const WMatic_ADDRESS = '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9'
+const USDC_WMatic_03_POOL = '0xb9E65C55b3faa83a710D22f7077Cc2a4E8557FA6'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
-  '0xd102ce6a4db07d247fcc28f366a623df0938ca9e', // WMATIC
-  '0xa0fb8cd450c8fd3a11901876cd5f17eb47c6bc50', // WETH
-  '0x8d97cea50351fb4329d591682b148d43a0c3611b', // USDC
-
-  '0xb4b01216a5bc8f1c8a33cd990a1239030e60c905', //STLOS
-  '0x975ed13fa16857e83e7c493c7741d556eaad4a3f', // USDT 
-  '0xac45ede2098bc989dfe0798b4630872006e24c3f', // SLUSH
-  '0x5fb2e2e655d03636b30c4e1ac1c96dd16330bde9', // TKIND
-  '0x78e05bc07e498f3191288c72a96fe1c4f7f6bdef', // TSOUL
-  '0x8f7d64ea96d729ef24a0f30b4526d47b80d877b9', // USDM
-  '0xb754619f355ef11cb36cce70784767ba92264330', //TRUMP
-  '0xfb319ea5dded8cfe8bcf9c720ed380b98874bf63', //RBN
-  '0x73875789809885daa0b2334c5cda5af6fc3a5454', //ROCKET
-  '0x15f424744c58ec927f42a0fd27493de19d814b43' // MOON
+  '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9', // WETH
+  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
+  '0x08f7340df921f5559fece57fabe39bb49930680e', // USDT 
+  '0x36BFE1F1b36CfdB4fe75cC592FF5dC6200Ad3E0f', // SLUSH
+  '0x03727C5a873117137558710A99a793369378B7dC', // WBTC
+  '0x06c6e5640e6cadf93072003d73ecd8d47b91626a', // TAIKO
+  '0xbB74689297a783eEFfAEfcC1334939E19F139C86', // LAMBO
+  '0x630e4925e42bda08425C82f22CF712Fff8a40fE8' // MOON
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -31,8 +25,8 @@ let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
 let Q192 = Math.pow(2, 192)
 
 let STABLE_COINS: string[] = [
-  '0x8d97cea50351fb4329d591682b148d43a0c3611b', // USDC
-  '0x975ed13fa16857e83e7c493c7741d556eaad4a3f' // USDT
+  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
+  '0x08f7340df921f5559fece57fabe39bb49930680e' // USDT
 ]
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
