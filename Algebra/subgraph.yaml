@@ -5,7 +5,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: mainnet
+    network: telos-testnet
     source:
       address: '0x2746B1a7B780f128F0db99d9fc60C2DB3E4a7bd5'
       abi: Factory
@@ -36,7 +36,7 @@ dataSources:
           handler: handleNewCommunityFee
   - kind: ethereum/contract
     name: NonfungiblePositionManager
-    network: mainnet
+    network: telos-testnet
     source:
       address: '0x805F104051415863Bbdf458cDCd52ceB5FEd9c01'
       abi: NonfungiblePositionManager
@@ -71,7 +71,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: mainnet
+    network: telos-testnet
     source:
       abi: Pool
     mapping:
