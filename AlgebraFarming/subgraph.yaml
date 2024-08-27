@@ -5,11 +5,11 @@ schema:
 dataSources:
 - kind: ethereum/contract
   name: NonfungiblePositionManager
-  network: telos
+  network: taiko-hekla-testnet
   source:
-      address: '0xf85bA8be4E5B82da25D68970b03F4FEBefD6Fa98'
+      address: '0x805F104051415863Bbdf458cDCd52ceB5FEd9c01'
       abi: NonfungiblePositionManager
-      startBlock: 301363244
+      startBlock: 657123
   mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -36,11 +36,11 @@ dataSources:
           handler: handleDecreaseLiquidity
 - kind: ethereum/contract
   name: EternalFarming
-  network: telos
+  network: taiko-hekla-testnet
   source:
-      address: '0x753273E4A262E57b01a7e8db4dAaFDCF584f739d'
+      address: '0x85Be30F65b1C133a2296BAFfb11B27cc00859fDB'
       abi: EternalFarming
-      startBlock: 309289049
+      startBlock: 657125
   mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
