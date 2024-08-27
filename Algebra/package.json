@@ -7,9 +7,9 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "create-mainnet": "graph create cryptoalgebra/analytics --node https://subgraph-api.mantle.xyz/deploy",
-    "remove-mainnet": "graph remove cryptoalgebra/analytics --node https://subgraph-api.mantle.xyz/deploy",
-    "deploy-mainnet": "graph deploy cryptoalgebra/analytics --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs"
+    "create-mainnet": "graph create swapsicle/analytics --node https://subgraph-api.mantle.xyz/deploy",
+    "remove-mainnet": "graph remove swapsicle/analytics --node https://subgraph-api.mantle.xyz/deploy",
+    "deploy-mainnet": "graph deploy swapsicle/analytics --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.73.0",
