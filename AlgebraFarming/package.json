@@ -18,13 +18,17 @@
     "remove-swapsicle": "graph remove cryptoalgebra/farms --node http://10.8.0.7:8220",
     "deploy-swapsicle": "graph deploy cryptoalgebra/farms --ipfs http://10.8.0.7:5201 --node http://10.8.0.7:8220",
 
+    "create-mainnet": "graph create swapsicle/farms-testnet --node https://telosapi.0xgraph.xyz/deploy",
+    "remove-mainnet": "graph remove swapsicle/farms-testnet --node https://telosapi.0xgraph.xyz/deploy",
+    "deploy-mainnet": "graph deploy swapsicle/farms-testnet --node https://telosapi.0xgraph.xyz/deploy --ipfs https://telosapi.0xgraph.xyz/ipfs",
+
     "deploy-goldsky": "goldsky subgraph deploy cryptoalgebra/farms --path .",
     "remove-goldsky": "goldsky subgraph delete swapsicle/farms-testnet"
   
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",
-    "@graphprotocol/graph-ts": "0.22.1",
+    "@graphprotocol/graph-ts": "0.25.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.2.2",

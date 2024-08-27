@@ -17,6 +17,10 @@
     "create-swapsicle": "graph create cryptoalgebra/blocks --node http://10.8.0.7:8220",
     "remove-swapsicle": "graph remove cryptoalgebra/blocks --node http://10.8.0.7:8220",
     "deploy-swapsicle": "graph deploy cryptoalgebra/blocks --ipfs http://10.8.0.7:5201 --node http://10.8.0.7:8220",
+
+    "create-mainnet": "graph create swapsicle/blocks-testnet --node https://telosapi.0xgraph.xyz/deploy",
+    "remove-mainnet": "graph remove swapsicle/blocks-testnet --node https://telosapi.0xgraph.xyz/deploy",
+    "deploy-mainnet": "graph deploy swapsicle/blocks-testnet --node https://telosapi.0xgraph.xyz/deploy --ipfs https://telosapi.0xgraph.xyz/ipfs",
     
     "deploy-goldsky": "goldsky subgraph deploy cryptoalgebra/blocks --path .",
     "remove-goldsky": "goldsky subgraph delete swapsicle/blocks-testnet"
