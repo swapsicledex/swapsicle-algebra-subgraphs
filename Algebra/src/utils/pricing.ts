@@ -5,7 +5,7 @@ import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
 const WMatic_ADDRESS = '0x6e2542afc68a1697feb2810437df9409d3b93493'
-const USDC_WMatic_03_POOL = '0xf733b8ab68dd2705c5e56c6c101f141044c5a2ef'
+const USDC_WMatic_03_POOL = '0xd210b247c31081002b409531b3735aceb5041a32'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
@@ -14,7 +14,7 @@ export let WHITELIST_TOKENS: string[] = [
   '0x29f6f62aa05812439eb6ddb0ba94e18e634d670c', // WETH
   '0x0557f5fe639d9dabebec2eb332934d58028d485e', // USDC
   '0xb38239b39f141cb9cdbf25e86f5ed37a6915d2dd', // USDT 
-  '0x6f1eb479c68e9749dd1531cd8ae1a25a53f8cda2' //SLUSH
+  '0xB4A11f5A1ce1cF06a6468D95c52832A77a37904B' // SLUSH
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
