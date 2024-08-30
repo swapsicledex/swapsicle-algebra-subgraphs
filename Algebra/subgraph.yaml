@@ -5,11 +5,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: taiko-hekla-testnet
+    network: taiko
     source:
-      address: '0x597502d47b0321de8A099F0BAcc769bAE35DA312'
+      address: '0xBa90FC740a95A6997306255853959Bb284cb748a'
       abi: Factory
-      startBlock: 657101
+      startBlock: 338445
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -36,11 +36,11 @@ dataSources:
           handler: handleNewCommunityFee
   - kind: ethereum/contract
     name: NonfungiblePositionManager
-    network: taiko-hekla-testnet
+    network: taiko
     source:
-      address: '0x805F104051415863Bbdf458cDCd52ceB5FEd9c01'
+      address: '0x28B5556518b12b626Fe581fabF5C81Fb69f8e04A'
       abi: NonfungiblePositionManager
-      startBlock: 657123
+      startBlock: 338724
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -71,7 +71,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: taiko-hekla-testnet
+    network: taiko
     source:
       abi: Pool
     mapping:

@@ -7,7 +7,7 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "deploy": "echo \"Change 0.0.0 and run: goldsky subgraph deploy swapsicle-analytics-taiko-hekla/0.0.0 --path .\""
+    "deploy": "echo \"Change 0.0.0 and run: goldsky subgraph deploy swapsicle-analytics-taiko/0.0.0 --path .\""
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.22.1",

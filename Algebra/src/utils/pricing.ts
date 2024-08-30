@@ -4,20 +4,19 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WMatic_ADDRESS = '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9'
-const USDC_WMatic_03_POOL = '0xb9E65C55b3faa83a710D22f7077Cc2a4E8557FA6'
+const WMatic_ADDRESS = '0xA51894664A773981C6C112C43ce576f315d5b1B6'
+const USDC_WMatic_03_POOL = '0x12C1FAa6195b8A81140DEAf9c25b8f15237bE829'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
-  '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9', // WETH
-  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
-  '0x08f7340df921f5559fece57fabe39bb49930680e', // USDT 
+  '0xA51894664A773981C6C112C43ce576f315d5b1B6', // WETH
+  '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b', // USDC
+  '0x19e26B0638bf63aa9fa4d14c6baF8D52eBE86C5C', // USDC.e - Bridged USDC (Stargate)
+  '0x2DEF195713CF4a606B49D07E520e22C17899a736', // USDT 
   '0x36BFE1F1b36CfdB4fe75cC592FF5dC6200Ad3E0f', // SLUSH
-  '0x03727C5a873117137558710A99a793369378B7dC', // WBTC
-  '0x06c6e5640e6cadf93072003d73ecd8d47b91626a', // TAIKO
-  '0xbB74689297a783eEFfAEfcC1334939E19F139C86', // LAMBO
-  '0x630e4925e42bda08425C82f22CF712Fff8a40fE8' // MOON
+  '0xc4C410459fbaF8f7F86b6cEE52b4fA1282FF9704', // WBTC
+  '0xA9d23408b9bA935c230493c40C73824Df71A0975', // TAIKO
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
