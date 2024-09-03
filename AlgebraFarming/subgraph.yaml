@@ -7,7 +7,7 @@ dataSources:
   name: NonfungiblePositionManager
   network: taiko-hekla-testnet
   source:
-      address: '0x805F104051415863Bbdf458cDCd52ceB5FEd9c01'
+      address: '0xf83DeA487c6B604De33fdcACf6E2390300BFc96a'
       abi: NonfungiblePositionManager
       startBlock: 657123
   mapping:
