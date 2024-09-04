@@ -7,7 +7,7 @@ dataSources:
     name: Factory
     network: taiko-hekla-testnet
     source:
-      address: '0x597502d47b0321de8A099F0BAcc769bAE35DA312'
+      address: '0x597502d47b0321de8a099f0bacc769bae35da312'
       abi: Factory
       startBlock: 657101
     mapping:

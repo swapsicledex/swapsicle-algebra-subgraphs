@@ -4,20 +4,20 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WMatic_ADDRESS = '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9'
-const USDC_WMatic_03_POOL = '0xb9E65C55b3faa83a710D22f7077Cc2a4E8557FA6'
+const WMatic_ADDRESS = '0xae2c46ddb314b9ba743c6dee4878f151881333d9'
+const USDC_WMatic_03_POOL = '0xb9e65c55b3faa83a710d22f7077cc2a4e8557fa6'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
-  '0xae2C46ddb314B9Ba743C6dEE4878F151881333D9', // WETH
-  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
+  '0xae2c46ddb314b9ba743c6dee4878f151881333d9', // WETH
+  '0x7ac3e85331fc614716a2e4ef3d3f8229a42e7412', // USDC
   '0x08f7340df921f5559fece57fabe39bb49930680e', // USDT 
-  '0x36BFE1F1b36CfdB4fe75cC592FF5dC6200Ad3E0f', // SLUSH
-  '0x03727C5a873117137558710A99a793369378B7dC', // WBTC
+  '0x36bfe1f1b36cfdb4fe75cc592ff5dc6200ad3e0f', // SLUSH
+  '0x03727c5a873117137558710a99a793369378b7dc', // WBTC
   '0x06c6e5640e6cadf93072003d73ecd8d47b91626a', // TAIKO
-  '0xbB74689297a783eEFfAEfcC1334939E19F139C86', // LAMBO
-  '0x630e4925e42bda08425C82f22CF712Fff8a40fE8' // MOON
+  '0xbb74689297a783eeffaefcc1334939e19f139c86', // LAMBO
+  '0x630e4925e42bda08425c82f22cf712fff8a40fe8', // MOON
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -25,7 +25,7 @@ let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
 let Q192 = Math.pow(2, 192)
 
 let STABLE_COINS: string[] = [
-  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
+  '0x7ac3e85331fc614716a2e4ef3d3f8229a42e7412', // USDC
   '0x08f7340df921f5559fece57fabe39bb49930680e' // USDT
 ]
 
