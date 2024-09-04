@@ -9,6 +9,8 @@ import { exponentToBigDecimal, safeDiv } from '../utils/index'
 export let WHITELIST_TOKENS: string[] = [
   WNATIVE_ADDRESS,
   SLUSH_ADDRESS,
+  USDC_ADDRESS,
+  USDT_ADDDRESS,
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -33,9 +35,9 @@ export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token):
 }
 
 export function getEthPriceInUSD(): BigDecimal {
-  let usdcPool = Pool.load(USDC_WNATIVE_POOL) // dai is token0
+  let usdcPool = Pool.load(USDC_WNATIVE_POOL) // USDC is token1
   if (usdcPool !== null) {
-    return usdcPool.token0Price
+    return usdcPool.token1Price
   } else {
     return ZERO_BD
   }
