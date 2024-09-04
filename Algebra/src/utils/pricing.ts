@@ -4,19 +4,19 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WMatic_ADDRESS = '0xA51894664A773981C6C112C43ce576f315d5b1B6'
-const USDC_WMatic_03_POOL = '0x12C1FAa6195b8A81140DEAf9c25b8f15237bE829'
+const WMatic_ADDRESS = '0xa51894664a773981c6c112c43ce576f315d5b1b6'
+const USDC_WMatic_03_POOL = '0x12c1faa6195b8a81140deaf9c25b8f15237be829'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
-  '0xA51894664A773981C6C112C43ce576f315d5b1B6', // WETH
-  '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b', // USDC
-  '0x19e26B0638bf63aa9fa4d14c6baF8D52eBE86C5C', // USDC.e - Bridged USDC (Stargate)
-  '0x2DEF195713CF4a606B49D07E520e22C17899a736', // USDT 
-  '0x36BFE1F1b36CfdB4fe75cC592FF5dC6200Ad3E0f', // SLUSH
-  '0xc4C410459fbaF8f7F86b6cEE52b4fA1282FF9704', // WBTC
-  '0xA9d23408b9bA935c230493c40C73824Df71A0975', // TAIKO
+  '0xa51894664a773981c6c112c43ce576f315d5b1b6', // WETH
+  '0x07d83526730c7438048d55a4fc0b850e2aab6f0b', // USDC
+  '0x19e26b0638bf63aa9fa4d14c6baf8d52ebe86c5c', // USDC.e - Bridged USDC (Stargate)
+  '0x2def195713cf4a606b49d07e520e22c17899a736', // USDT 
+  '0x36bfe1f1b36cfdb4fe75cc592ff5dc6200ad3e0f', // SLUSH
+  '0xc4c410459fbaf8f7f86b6cee52b4fa1282ff9704', // WBTC
+  '0xa9d23408b9ba935c230493c40c73824df71a0975', // TAIKO
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -24,8 +24,9 @@ let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
 let Q192 = Math.pow(2, 192)
 
 let STABLE_COINS: string[] = [
-  '0x7Ac3e85331fC614716A2e4ef3D3F8229A42E7412', // USDC
-  '0x08f7340df921f5559fece57fabe39bb49930680e' // USDT
+  '0x07d83526730c7438048d55a4fc0b850e2aab6f0b', // USDC
+  '0x19e26b0638bf63aa9fa4d14c6baf8d52ebe86c5c', // USDC.e
+  '0x2def195713cf4a606b49d07e520e22c17899a736', // USDT
 ]
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {

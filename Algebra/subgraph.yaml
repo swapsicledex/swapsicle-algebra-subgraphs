@@ -7,7 +7,7 @@ dataSources:
     name: Factory
     network: taiko
     source:
-      address: '0xBa90FC740a95A6997306255853959Bb284cb748a'
+      address: '0xba90fc740a95a6997306255853959bb284cb748a'
       abi: Factory
       startBlock: 338445
     mapping:
