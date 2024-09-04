@@ -7,7 +7,7 @@ dataSources:
     name: Factory
     network: mantle-sepolia
     source:
-      address: '0x10253594A832f967994b44f33411940533302ACb'
+      address: '0x10253594a832f967994b44f33411940533302acb'
       abi: Factory
       startBlock: 5035835
     mapping:
