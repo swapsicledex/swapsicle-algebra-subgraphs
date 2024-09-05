@@ -1,23 +1,22 @@
 /* eslint-disable prefer-const */
-import { ONE_BD, ZERO_BD, ZERO_BI } from './constants'
+import { CUSD_ADDRESS, LEND_ADDRESS, METH_ADDRESS, MUSD_ADDRESS, ONE_BD, SLUSH_ADDRESS, USDC_ADDRESS, USDC_WNATIVE_POOL, USDT_ADDDRESS, WBTC_ADDRESS, WETH_ADDRESS, WNATIVE_ADDRESS, ZERO_BD, ZERO_BI } from './constants'
 import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WMatic_ADDRESS = '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8'
-const USDC_WMatic_03_POOL = '0x84ec2a3907ed9e79c7a45551fef9da29d5f2ae9b'
-
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with (lower case)
 export let WHITELIST_TOKENS: string[] = [
-  '0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8', // WMATIC
-  '0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111', // WETH
-  '0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9', // USDC
-  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae', // USDT 
-  '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
-  '0x8309bc8bb43fb54db02da7d8bf87192355532829', //SLUSH
-  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4', // cUSD
-  '0x25356aeca4210ef7553140edb9b8026089e49396' // LEND
+  WNATIVE_ADDRESS,
+  USDC_ADDRESS,
+  USDT_ADDDRESS,
+  MUSD_ADDRESS,
+  CUSD_ADDRESS,
+  SLUSH_ADDRESS,
+  LEND_ADDRESS,
+  WBTC_ADDRESS,
+  WETH_ADDRESS,
+  METH_ADDRESS,
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -25,10 +24,10 @@ let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
 let Q192 = Math.pow(2, 192)
 
 let STABLE_COINS: string[] = [
-  '0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9', // USDC
-  '0x201eba5cc46d216ce6dc03f6a759e8e766e956ae', // USDT
-  '0xab575258d37eaa5c8956efabe71f4ee8f6397cf3', // mUSD
-  '0x62959ad021402f48d0d8067bc5c4c03f63fceaa4' // cUSD
+  USDC_ADDRESS,
+  USDT_ADDDRESS,
+  MUSD_ADDRESS,
+  CUSD_ADDRESS,
 ]
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
@@ -44,7 +43,7 @@ export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token):
 }
 
 export function getEthPriceInUSD(): BigDecimal {
-  let usdcPool = Pool.load(USDC_WMatic_03_POOL) // dai is token0
+  let usdcPool = Pool.load(USDC_WNATIVE_POOL) // USDC is token0
   if (usdcPool !== null) {
     return usdcPool.token0Price
   } else {
@@ -58,7 +57,7 @@ export function getEthPriceInUSD(): BigDecimal {
  * @todo update to be derived Matic (add stablecoin estimates)
  **/
 export function findEthPerToken(token: Token): BigDecimal {
-  if (token.id == WMatic_ADDRESS) {
+  if (token.id == WNATIVE_ADDRESS) {
     return ONE_BD
   }
   let whiteList = token.whitelistPools
