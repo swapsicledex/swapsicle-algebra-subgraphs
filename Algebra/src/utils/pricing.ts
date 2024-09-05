@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import { ONE_BD, SLUSH_ADDRESS, USDC_ADDRESS, USDC_WNATIVE_POOL, USDT_ADDDRESS, WNATIVE_ADDRESS, ZERO_BD, ZERO_BI } from './constants'
+import { MUSD_ADDRESS, ONE_BD, SLUSH_ADDRESS, USDC_ADDRESS, USDC_WNATIVE_POOL, USDT_ADDDRESS, WBTC_ADDRESS, WETH_ADDRESS, WNATIVE_ADDRESS, ZERO_BD, ZERO_BI } from './constants'
 import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
@@ -11,6 +11,9 @@ export let WHITELIST_TOKENS: string[] = [
   SLUSH_ADDRESS,
   USDC_ADDRESS,
   USDT_ADDDRESS,
+  MUSD_ADDRESS,
+  WBTC_ADDRESS,
+  WETH_ADDRESS,
 ]
 
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
@@ -20,6 +23,7 @@ let Q192 = Math.pow(2, 192)
 let STABLE_COINS: string[] = [
   USDC_ADDRESS,
   USDT_ADDDRESS,
+  MUSD_ADDRESS,
 ]
 
 export function priceToTokenPrices(price: BigInt, token0: Token, token1: Token): BigDecimal[] {
