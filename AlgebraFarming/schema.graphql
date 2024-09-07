@@ -11,6 +11,10 @@ type EternalFarming @entity {
   bonusRewardRate: BigInt!
   isDeactivated: Boolean
   minRangeLength: BigInt!
+  # timestamp of transaction
+  timestamp: BigInt!
+  # pointer to transaction
+  transaction: Transaction!
 }
 
 type Deposit @entity {
@@ -20,6 +24,10 @@ type Deposit @entity {
   eternalFarming: Bytes 
   liquidity: BigInt!
   rangeLength: BigInt!
+  # timestamp of transaction
+  timestamp: BigInt!
+  # pointer to transaction
+  transaction: Transaction!
 }
 
 type Reward @entity{
@@ -27,6 +35,10 @@ type Reward @entity{
   rewardAddress: Bytes!
   amount: BigInt!
   owner: Bytes!
+  # timestamp of transaction
+  timestamp: BigInt!
+  # pointer to transaction
+  transaction: Transaction!
 }
 
 type Token @entity{
@@ -37,4 +49,20 @@ type Token @entity{
   name: String!
   # token decimals
   decimals: BigInt!
+}
+
+type Transaction @entity {
+  # txn hash
+  id: ID!
+  # block txn was included in
+  blockNumber: BigInt!
+  # timestamp txn was confirmed
+  timestamp: BigInt!
+  # gas used during txn execution
+  gasLimit: BigInt!
+  gasPrice: BigInt!
+  # derived values
+  eternalFarmings: [EternalFarming!]! @derivedFrom(field: "transaction")
+  deposits: [Deposit!]! @derivedFrom(field: "transaction")
+  rewards: [Reward!]! @derivedFrom(field: "transaction")
 }

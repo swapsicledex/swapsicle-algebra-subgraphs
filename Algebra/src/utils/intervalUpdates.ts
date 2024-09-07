@@ -60,9 +60,13 @@ export function updatePoolDayData(event: ethereum.Event): PoolDayData {
     // things that dont get initialized always
     poolDayData.volumeToken0 = ZERO_BD
     poolDayData.volumeToken1 = ZERO_BD
+    poolDayData.feesToken0 = ZERO_BD
+    poolDayData.feesToken1 = ZERO_BD
     poolDayData.volumeUSD = ZERO_BD
     poolDayData.untrackedVolumeUSD = ZERO_BD
     poolDayData.feesUSD = ZERO_BD
+    poolDayData.feesToken0 = ZERO_BD
+    poolDayData.feesToken1 = ZERO_BD
     poolDayData.txCount = ZERO_BI
     poolDayData.feeGrowthGlobal0X128 = ZERO_BI
     poolDayData.feeGrowthGlobal1X128 = ZERO_BI

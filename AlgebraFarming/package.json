@@ -1,4 +1,3 @@
-
 {
   "name": "algebra-farming-subgraph",
   "version": "1.0.0",
@@ -14,18 +13,18 @@
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ --access-token  iliaazhel/zyberswap-farming  subgraph.yaml",
     "deploy-dev": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ iliaazhel/algebra-dev-staker subgraph.yaml",
 
-    "deploy-0xgraph": "graph deploy cryptoalgebra/farms-testnet --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
-    "create-0xgraph": "graph create cryptoalgebra/farms-testnet --node https://subgraph-api.mantle.xyz/deploy",
-    "remove-0xgraph": "graph remove cryptoalgebra/farms-testnet --node https://subgraph-api.mantle.xyz/deploy"
+    "deploy-mainnet": "graph deploy swapsicle/farms-testnet --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
+    "create-mainnet": "graph create swapsicle/farms-testnet --node https://subgraph-api.mantle.xyz/deploy",
+    "remove-mainnet": "graph remove swapsicle/farms-testnet --node https://subgraph-api.mantle.xyz/deploy"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "0.22.1",
-    "@graphprotocol/graph-ts": "0.25.0",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.2.2",
-    "eslint-config-prettier": "^6.1.0",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
+    "@graphprotocol/graph-cli": "0.69.1",
+    "@graphprotocol/graph-ts": "0.34.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3"
   }
 }

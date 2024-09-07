@@ -14,12 +14,12 @@
     "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
     "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks",
 
-    "deploy-0xgraph": "graph deploy cryptoalgebra/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
-    "create-0xgraph": "graph create cryptoalgebra/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy",
-    "remove-0xgraph": "graph remove cryptoalgebra/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy"
+    "deploy-mainnet": "graph deploy swapsicle/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy --ipfs https://subgraph-api.mantle.xyz/ipfs",
+    "create-mainnet": "graph create swapsicle/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy",
+    "remove-mainnet": "graph remove swapsicle/blocks-testnet --node https://subgraph-api.mantle.xyz/deploy"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.22.1",
-    "@graphprotocol/graph-ts": "0.25.0"
+    "@graphprotocol/graph-cli": "^0.69.1",
+    "@graphprotocol/graph-ts": "0.34.0"
   }
 }

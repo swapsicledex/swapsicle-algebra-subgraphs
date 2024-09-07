@@ -2,11 +2,19 @@
 import { BigInt, BigDecimal, Address } from '@graphprotocol/graph-ts'
 import { Factory as FactoryContract } from '../types/templates/Pool/Factory'
 
-
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0xc074c6551a9cB8f63ff3dC2eA9616996db9B4eCF'
-export const SLUSH_ADDRESS = '0xb9c6acfaf5cb0580476a0b609d8c4f64a8c793ce'
-export const ICE_ADDRESS = Address.fromString('0x55cba56adc37639dbcda1d88c245a9544753441e')
+export const FACTORY_ADDRESS = '0x10253594a832f967994b44f33411940533302acb'
+
+export const USDC_WNATIVE_POOL = '0xfdbcb43134320667f42dd9829a5cb43ace25bbf1'
+
+export const SLUSH_ADDRESS = '0x36bfe1f1b36cfdb4fe75cc592ff5dc6200ad3e0f'
+export const ICE_ADDRESS = Address.fromString('0x0c4e57a3a3ef4790c4848a711851dc08e8a16da7')
+export const WNATIVE_ADDRESS = '0xb1eda18c1b730a973dac2ec37cfd5685d7de10dd'
+export const USDC_ADDRESS = '0xbb74689297a783eeffaefcc1334939e19f139c86'
+export const USDT_ADDDRESS = '0x3c8d3fcd0b0bd6f46c8883db5d14a8f510a4591d'
+export const MUSD_ADDRESS = '0xac45ede2098bc989dfe0798b4630872006e24c3f'
+export const WBTC_ADDRESS = '0xb736642f4ba86a24ce70928037d6cff2f96c5d0c'
+export const WETH_ADDRESS = '0xcaea50d878d8fd36b726e4e6ffa6fae0956ff1a2'
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
