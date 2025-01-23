@@ -106,3 +106,8 @@ templates:
           handler: handleSetCommunityFee
         - event: TickSpacing(int24)
           handler: handleSetTickSpacing
+features:
+  - grafting
+graft:
+  base: Qmd6Ezokj62LniedKzuzdEWjdZCzJQMAoefsuMtRsySobf
+  block: 385290341
