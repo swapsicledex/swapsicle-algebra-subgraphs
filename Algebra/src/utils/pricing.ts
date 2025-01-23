@@ -26,6 +26,10 @@ export let WHITELIST_TOKENS: string[] = [
   '0x15f424744c58ec927f42a0fd27493de19d814b43' // MOON
 ]
 
+export let BLACKLIST_TOKENS: string[] = [
+  '0xfb0d65271362a0d55476f007cee854f44d108506', // token w/o symbol & name
+]
+
 let MINIMUM_Matic_LOCKED = BigDecimal.fromString('0')
 
 let Q192 = Math.pow(2, 192)

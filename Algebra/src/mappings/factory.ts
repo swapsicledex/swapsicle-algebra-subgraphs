@@ -1,4 +1,4 @@
-import { WHITELIST_TOKENS } from './../utils/pricing'
+import { BLACKLIST_TOKENS, WHITELIST_TOKENS } from './../utils/pricing'
 /* eslint-disable prefer-const */
 import { FACTORY_ADDRESS, ZERO_BI, ONE_BI, ZERO_BD, ADDRESS_ZERO, ICE_ADDRESS, pools_list} from './../utils/constants'
 import { Factory } from '../types/schema'
@@ -69,9 +69,18 @@ export function handlePoolCreated(event: PoolEvent): void {
   let token0_address = event.params.token0
   let token1_address = event.params.token1
 
+  if (BLACKLIST_TOKENS.includes(token0_address.toHexString().toLowerCase())) {
+    log.warning('Ignoring pool {} because of token0 {}, which is blacklisted', [event.params.pool.toHexString(), token0_address.toHexString()])
+    return
+  }
+
+  if (BLACKLIST_TOKENS.includes(token1_address.toHexString().toLowerCase())) {
+    log.warning('Ignoring pool {} because of token1 {}, which is blacklisted', [event.params.pool.toHexString(), token1_address.toHexString()])
+    return
+  }
+
   let token0 = Token.load(token0_address.toHexString())
   let token1 = Token.load(token1_address.toHexString())
-
 
   if(pools_list.includes(event.params.pool.toHexString())){
     token0 = Token.load(event.params.token1.toHexString())
@@ -198,7 +207,6 @@ export function handlePoolCreated(event: PoolEvent): void {
   token0.save()
   token1.save()
   factory.save()
-
 }
 
 export function handleNewCommunityFee(event: DefaultCommunityFee): void{
