@@ -3,8 +3,9 @@ import { ERC20 } from '../types/Factory/ERC20'
 import { ERC20SymbolBytes } from '../types/Factory/ERC20SymbolBytes'
 import { ERC20NameBytes } from '../types/Factory/ERC20NameBytes'
 import { StaticTokenDefinition } from './staticTokenDefinition'
-import { BigInt, Address } from '@graphprotocol/graph-ts'
+import { BigInt, Address, log } from '@graphprotocol/graph-ts'
 import { isNullEthValue } from '.'
+import { UNKNOWN } from './constants'
 
 
 export function fetchTokenSymbol(tokenAddress: Address): string {
@@ -12,7 +13,7 @@ export function fetchTokenSymbol(tokenAddress: Address): string {
   let contractSymbolBytes = ERC20SymbolBytes.bind(tokenAddress)
 
   // try types string and bytes32 for symbol
-  let symbolValue = 'unknown'
+  let symbolValue = UNKNOWN
   let symbolResult = contract.try_symbol()
   if (symbolResult.reverted) {
     let symbolResultBytes = contractSymbolBytes.try_symbol()
@@ -32,6 +33,8 @@ export function fetchTokenSymbol(tokenAddress: Address): string {
     symbolValue = symbolResult.value
   }
 
+  if (symbolValue === null) log.warning('symbol on token {} is null', [tokenAddress.toHexString()])
+
   return symbolValue
 }
 
@@ -40,7 +43,7 @@ export function fetchTokenName(tokenAddress: Address): string {
   let contractNameBytes = ERC20NameBytes.bind(tokenAddress)
 
   // try types string and bytes32 for name
-  let nameValue = 'unknown'
+  let nameValue = UNKNOWN
   let nameResult = contract.try_name()
   if (nameResult.reverted) {
     let nameResultBytes = contractNameBytes.try_name()
@@ -60,6 +63,8 @@ export function fetchTokenName(tokenAddress: Address): string {
     nameValue = nameResult.value
   }
 
+  if (nameValue === null) log.warning('name on token {} is null', [tokenAddress.toHexString()])
+
   return nameValue
 }
 
@@ -71,6 +76,9 @@ export function fetchTokenTotalSupply(tokenAddress: Address): BigInt {
     let totalSupply = contract.totalSupply()
     totalSupplyValue = totalSupply
   }
+  
+  if (totalSupplyValue === null) log.warning('totalSupply on token {} is null', [tokenAddress.toHexString()])
+
   return totalSupplyValue as BigInt
 }
 
@@ -84,10 +92,12 @@ export function fetchTokenDecimals(tokenAddress: Address): BigInt {
   } else {
     // try with the static definition
     let staticTokenDefinition = StaticTokenDefinition.fromAddress(tokenAddress)
-    if(staticTokenDefinition != null) {
+    if (staticTokenDefinition != null) {
       return staticTokenDefinition.decimals
     }
   }
+
+  if (decimalValue === null) log.warning('decimals on token {} is null', [tokenAddress.toHexString()])
 
   return decimalValue
 }

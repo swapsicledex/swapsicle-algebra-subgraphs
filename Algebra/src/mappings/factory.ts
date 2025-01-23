@@ -38,7 +38,7 @@ export function handlePoolCreated(event: PoolEvent): void {
 
     // bail if we couldn't figure out the decimals
     if (decimals === null) {
-      log.debug('mybug the decimal on token 0 was null', [])
+      log.debug('decimals on token0 {} is null', [ICE_ADDRESS.toHexString()])
       return
     }
 
@@ -83,18 +83,23 @@ export function handlePoolCreated(event: PoolEvent): void {
   // fetch info if null
   if (token0 === null) {
     token0 = new Token(token0_address.toHexString())
-    token0.symbol = fetchTokenSymbol(token0_address)
-    token0.name = fetchTokenName(token0_address)
-    token0.totalSupply = fetchTokenTotalSupply(token0_address)
+
+    let symbol = fetchTokenSymbol(token0_address)
+    if (symbol === null) return
+    token0.symbol = symbol
+
+    let name = fetchTokenName(token0_address)
+    if (name === null) return
+    token0.name = name
+    
     let decimals = fetchTokenDecimals(token0_address)
-
-    // bail if we couldn't figure out the decimals
-    if (decimals === null) {
-      log.debug('mybug the decimal on token 0 was null', [])
-      return
-    }
-
+    if (decimals === null) return
     token0.decimals = decimals
+
+    let totalSupply = fetchTokenTotalSupply(token0_address)
+    if (totalSupply === null) return
+    token0.totalSupply = totalSupply
+
     token0.derivedMatic = ZERO_BD
     token0.volume = ZERO_BD
     token0.volumeUSD = ZERO_BD
@@ -110,16 +115,23 @@ export function handlePoolCreated(event: PoolEvent): void {
 
   if (token1 === null) {
     token1 = new Token(token1_address.toHexString())
-    token1.symbol = fetchTokenSymbol(token1_address)
-    token1.name = fetchTokenName(token1_address)
-    token1.totalSupply = fetchTokenTotalSupply(token1_address)
+
+    let symbol = fetchTokenSymbol(token1_address)
+    if (symbol === null) return
+    token1.symbol = symbol
+
+    let name = fetchTokenName(token1_address)
+    if (name === null) return
+    token1.name = name
+    
     let decimals = fetchTokenDecimals(token1_address)
-    // bail if we couldn't figure out the decimals
-    if (decimals === null) {
-      log.debug('mybug the decimal on token 0 was null', [])
-      return
-    }
+    if (decimals === null) return
     token1.decimals = decimals
+
+    let totalSupply = fetchTokenTotalSupply(token1_address)
+    if (totalSupply === null) return
+    token1.totalSupply = totalSupply
+
     token1.derivedMatic = ZERO_BD
     token1.volume = ZERO_BD
     token1.volumeUSD = ZERO_BD
